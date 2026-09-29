@@ -2,19 +2,19 @@
 /*=============== SHOW & CLOSE MENU ===============*/
 
 const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close')
+   navToggle = document.getElementById('nav-toggle'),
+   navClose = document.getElementById('nav-close')
 
 /* Show menu */
-if(navToggle){
-   navToggle.addEventListener('click', () =>{
+if (navToggle) {
+   navToggle.addEventListener('click', () => {
       navMenu.classList.add('show-menu')
    })
 }
 
 /* Hide menu */
-if(navClose){
-   navClose.addEventListener('click', () =>{
+if (navClose) {
+   navClose.addEventListener('click', () => {
       navMenu.classList.remove('show-menu')
    })
 }
@@ -22,7 +22,7 @@ if(navClose){
 /*=============== REMOVE MOBILE MENU ===============*/
 const navLink = document.querySelectorAll('.nav__link, .nav__contact')
 
-const linkAction = () =>{
+const linkAction = () => {
    const navMenu = document.getElementById('nav-menu')
    // When we click on each nav__link, we remove the show-menu class
    navMenu.classList.remove('show-menu')
@@ -32,8 +32,8 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 /*=============== HOME TEXT CIRCULAR ===============*/
 
 const homeText = document.getElementById('home-text'),
-letters = homeText.textContent.trim().split('') , // Converts text into an array of character
-angleStep = 360 / letters.length ; //Angle for each character
+   letters = homeText.textContent.trim().split(''), // Converts text into an array of character
+   angleStep = 360 / letters.length; //Angle for each character
 
 homeText.textContent = '' //Clears the original content
 
@@ -41,14 +41,14 @@ homeText.textContent = '' //Clears the original content
 letters.forEach((char, i) => {
    const span = document.createElement('span')
    span.textContent = char
-   span.style.transform = `rotate(${i*angleStep}deg)`;
+   span.style.transform = `rotate(${i * angleStep}deg)`;
    homeText.appendChild(span)
 })
 
 /*=============== HOME TYPED JS ===============*/
 
 const typedHome = new Typed('#home-typed', {
-   strings: ['Web Developer' , 'Frontend Developer', 'SEO Specialist'],
+   strings: ['Web Developer', 'Frontend Developer', 'SEO Specialist'],
    typeSpeed: 60,
    backSpeed: 30,
    backDelay: 2000,
@@ -60,14 +60,14 @@ const typedHome = new Typed('#home-typed', {
 const scrollHeader = () => {
    const header = document.getElementById('header')
    //Add the .scroll-header class if the bottom scroll of theviewport is greater than 50
-   this.scrollY >= 50 ?header.classList.add('scroll-header')
-                       : header.classList.remove('scroll-header')
+   this.scrollY >= 50 ? header.classList.add('scroll-header')
+      : header.classList.remove('scroll-header')
 
 }
 window.addEventListener('scroll', scrollHeader)
 
 
-/*=============== SWIPER WORK ===============*/ 
+/*=============== SWIPER WORK ===============*/
 
 const swiperWork = new Swiper('.work__swiper', {
    loop: true,
@@ -88,16 +88,16 @@ const swiperWork = new Swiper('.work__swiper', {
 });
 
 
-/*=============== SERVICES ACCORDION ===============*/ 
+/*=============== SERVICES ACCORDION ===============*/
 
 const servicesCards = document.querySelectorAll('.services__card'),
-servicesButtons = document.querySelectorAll('.services__button')
+   servicesButtons = document.querySelectorAll('.services__button')
 
 // It iterates over each button found
 servicesButtons.forEach(button => {
    button.addEventListener('click', () => {
       const currentCard = button.closest('.services__card'),
-      isOpen = currentCard.classList.contains('services-open') 
+         isOpen = currentCard.classList.contains('services-open')
 
       // Close all other services data
       servicesCards.forEach(card => {
@@ -105,7 +105,7 @@ servicesButtons.forEach(button => {
       })
 
       // If the clicked card was closed , it opens it
-      if(!isOpen){
+      if (!isOpen) {
          currentCard.classList.replace('services-close', 'services-open')
       }
    })
@@ -113,17 +113,17 @@ servicesButtons.forEach(button => {
 
 
 
-/*=============== CONTACT EMAIL JS ===============*/ 
+/*=============== CONTACT EMAIL JS ===============*/
 
 const contactForm = document.getElementById('contact-form'),
-      contactMessage = document.getElementById('contact-message');
+   contactMessage = document.getElementById('contact-message');
 
 const sendEmail = async (e) => {
    e.preventDefault();
 
-   try{
+   try {
       // serviceID - templateID - #form - publicKey
-      await emailjs.sendForm('service_egu8une', 'template_zwwql5i', '#contact-form', 'dJ6F0RL219JLq96yP')
+      await emailjs.sendForm('service_egu8une', 'template_m7ueeco', '#contact-form', 'rE-D3IyG3oPBzZPGr')
 
       // show send Message
       contactMessage.textContent = 'Message sent successfully ✅'
@@ -135,7 +135,7 @@ const sendEmail = async (e) => {
       contactMessage.textContent = 'Message not sent (service error) ❌'
    } finally {
       // Remove message after five seconds
-      setTimeout(() => contactMessage.textContent = '' , 5000)
+      setTimeout(() => contactMessage.textContent = '', 5000)
    }
 }
 contactForm.addEventListener('submit', sendEmail)
@@ -145,7 +145,7 @@ contactForm.addEventListener('submit', sendEmail)
 const scrollUp = () => {
    const scrollUp = document.getElementById('scroll-up')
    this.scrollY >= 350 ? scrollUp.classList.add('show-scrol')
-                        : scrollUp.classList.remove('show-scroll')
+      : scrollUp.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollUp)
 
@@ -158,13 +158,13 @@ const scrollActive = () => {
 
    sections.forEach(section => {
       const id = section.id,
-      top = section.offsetTop -50,
-      height = section.offsetHeight,
-      link = document.querySelector('.nav__menu a[href*=' +id+ ']')
+         top = section.offsetTop - 50,
+         height = section.offsetHeight,
+         link = document.querySelector('.nav__menu a[href*=' + id + ']')
 
-      if(!link) return
+      if (!link) return
 
-      link.classList.toggle('active-link', scrollY > top && scrollY <= top+height)
+      link.classList.toggle('active-link', scrollY > top && scrollY <= top + height)
    })
 }
 window.addEventListener('scroll', scrollActive)
@@ -183,7 +183,7 @@ const cursorMove = () => {
    requestAnimationFrame(cursorMove)
 }
 
-document.addEventListener('mousemove' , (e) => {
+document.addEventListener('mousemove', (e) => {
    mouseX = e.clientX
    mouseY = e.clientY
 })
@@ -195,10 +195,10 @@ cursorMove()
 const a = document.querySelectorAll('a')
 
 a.forEach(item => {
-   item.addEventListener('mouseover' , () => {
+   item.addEventListener('mouseover', () => {
       cursor.classList.add('hide-cursor')
    })
-   item.addEventListener('mouseleave' , () => {
+   item.addEventListener('mouseleave', () => {
       cursor.classList.remove('hide-cursor')
    })
 })
@@ -207,7 +207,7 @@ a.forEach(item => {
 /*=============== SCROLLREVEAL ANIMATION ===============*/
 
 const sr = ScrollReveal({
-   origin:'bottom',
+   origin: 'bottom',
    distance: '60px',
    duration: '1200',
    delay: 300,
@@ -215,29 +215,29 @@ const sr = ScrollReveal({
 })
 
 sr.reveal('.home__subtitle')
-sr.reveal('.home__title', {delay: 600} )
-sr.reveal('.home__description', {delay: 900} )
-sr.reveal('.home__box-1', {delay: 1200, rotate:{z:-20}} )
-sr.reveal('.home__box-2', {delay: 1300, rotate:{z:-30}} )
-sr.reveal('.home__box-3', {delay: 1400, rotate:{z:-40}} )
-sr.reveal('.home__img', {delay: 1700, distance: '-60px'} )
-sr.reveal('.home__circle', {delay: 2000, distance: '-100px'} )
+sr.reveal('.home__title', { delay: 600 })
+sr.reveal('.home__description', { delay: 900 })
+sr.reveal('.home__box-1', { delay: 1200, rotate: { z: -20 } })
+sr.reveal('.home__box-2', { delay: 1300, rotate: { z: -30 } })
+sr.reveal('.home__box-3', { delay: 1400, rotate: { z: -40 } })
+sr.reveal('.home__img', { delay: 1700, distance: '-60px' })
+sr.reveal('.home__circle', { delay: 2000, distance: '-100px' })
 
-sr.reveal('.about__title' )
-sr.reveal('.about__description', {delay: 600} )
-sr.reveal('.about__button', {delay: 900} )
+sr.reveal('.about__title')
+sr.reveal('.about__description', { delay: 600 })
+sr.reveal('.about__button', { delay: 900 })
 
-sr.reveal('.work-swiper' )
+sr.reveal('.work-swiper')
 
-sr.reveal('.services__card:nth-Children(odd)' , {interval: 200, origin: 'left', distance: '100px'})
-sr.reveal('.services__card:nth-Children(even)' , {interval: 200, origin: 'right', distance: '100px'})
+sr.reveal('.services__card:nth-Children(odd)', { interval: 200, origin: 'left', distance: '100px' })
+sr.reveal('.services__card:nth-Children(even)', { interval: 200, origin: 'right', distance: '100px' })
 
-sr.reveal('.skills__description' )
-sr.reveal('.skills__card', {delay: 600, interval:200} )
-sr.reveal('.skills__profession', {delay: 900} )
-sr.reveal('.skills__list', {delay: 1200, interval: 200} )
+sr.reveal('.skills__description')
+sr.reveal('.skills__card', { delay: 600, interval: 200 })
+sr.reveal('.skills__profession', { delay: 900 })
+sr.reveal('.skills__list', { delay: 1200, interval: 200 })
 
-sr.reveal('.contact__form' )
-sr.reveal('.contact__link', {delay: 600, interval:200} )
+sr.reveal('.contact__form')
+sr.reveal('.contact__link', { delay: 600, interval: 200 })
 
-sr.reveal('.footer__container' )
+sr.reveal('.footer__container')

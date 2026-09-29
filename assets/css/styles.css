@@ -129,6 +129,8 @@ img {
   margin-inline: 2rem;
 }
 
+header{ background-color: #000;}
+
 .grid {
   display: grid;
   gap: 1.5rem;
@@ -199,7 +201,7 @@ img {
   align-items: center;
 }
 
-.nav__logo {
+.nav__logo { 
   color: var(--white-color);
   font-family: var(--second-font);
   font-weight: var(--font-semi-bold);
@@ -210,6 +212,8 @@ img {
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+.work__card img{ height: 300px; object-fit: cover; width: 100%;}
 
 /* Navigation for mobile devices <> */
 @media (width <=1150px) {
@@ -599,6 +603,8 @@ img {
   background-color: var(--first-color);
   transition: opacity 0.4s;
 }
+
+.work__description{margin-top: 1rem;}
 
 /*=============== SERVICES SECTION ===============*/
 
