@@ -8,8 +8,6 @@
    <meta name="robots" content="index, follow">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
    <!--=============== REMIXICONS - Insert link for icons ===============-->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css">
 
@@ -19,14 +17,123 @@
    <!--=============== CSS ===============-->
    <link rel="stylesheet" href="assets/css/styles.css">
 
-   <title>Responsive portfolio website | Bedimcode</title>
+   <style>
+      :root {
+         --soft-glow: rgba(114, 162, 255, 0.22);
+         --soft-border: rgba(255, 255, 255, 0.08);
+      }
+
+      .nav__logo {
+         display: inline-flex;
+         align-items: center;
+         gap: 0.65rem;
+         letter-spacing: 0.08em;
+         text-transform: uppercase;
+      }
+
+      .nav__logo::before {
+         content: "";
+         width: 10px;
+         height: 10px;
+         border-radius: 50%;
+         background: linear-gradient(135deg, hsl(var(--hue), 100%, 80%) 0%, hsl(var(--hue), 75%, 60%) 100%);
+         box-shadow: 0 0 18px rgba(138, 183, 255, 0.9);
+      }
+
+      .button,
+      .nav__contact,
+      .contact__button {
+         box-shadow: 0 12px 28px rgba(83, 118, 255, 0.22);
+         transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .button:hover,
+      .nav__contact:hover,
+      .contact__button:hover {
+         transform: translateY(-2px);
+         box-shadow: 0 16px 32px rgba(83, 118, 255, 0.32);
+      }
+
+      .work__card,
+      .services__card,
+      .skills__card,
+      .contact__link {
+         border: 1px solid var(--soft-border);
+         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+         transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      }
+
+      .work__card:hover,
+      .services__card:hover,
+      .skills__card:hover,
+      .contact__link:hover {
+         transform: translateY(-4px);
+         box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+         border-color: rgba(135, 164, 255, 0.34);
+      }
+
+      .services__button:hover .services__name {
+         color: var(--first-color);
+      }
+
+      .contact__input {
+         border: 1px solid transparent;
+         transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .contact__input:focus {
+         border-color: rgba(135, 164, 255, 0.35);
+         box-shadow: 0 0 0 4px rgba(135, 164, 255, 0.12);
+      }
+
+      .contact__link:hover {
+         transform: translateY(-2px);
+      }
+
+      .footer__social-link {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         width: 2.5rem;
+         height: 2.5rem;
+         border-radius: 999px;
+         background: rgba(255, 255, 255, 0.03);
+         border: 1px solid rgba(255, 255, 255, 0.08);
+         transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+      }
+
+      .footer__social-link:hover {
+         transform: translateY(-2px);
+         background: rgba(135, 164, 255, 0.08);
+         border-color: rgba(135, 164, 255, 0.28);
+      }
+
+      .scrollup {
+         border: 1px solid rgba(255, 255, 255, 0.08);
+         background: rgba(255, 255, 255, 0.04);
+         backdrop-filter: blur(8px);
+         -webkit-backdrop-filter: blur(8px);
+      }
+
+      @media (max-width: 767px) {
+         .nav__logo {
+            font-size: 0.95rem;
+         }
+
+         .work__card {
+            padding: 0.9rem 0.9rem 2.2rem;
+         }
+      }
+   </style>
+
+   <title>Manita Kumari | Frontend Developer</title>
 </head>
 
 <body>
    <!--==================== HEADER & NAV ====================-->
    <header class="header" id="header">
       <nav class="nav container">
-         <a href="index.html" class="nav__logo">Portfolio</a>
+         <a href="index.html" class="nav__logo">Manita</a>
 
          <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">
@@ -35,11 +142,11 @@
                </li>
 
                <li>
-                  <a href="#work" class="nav__link">Works</a>
+                  <a href="#work" class="nav__link">Projects</a>
                </li>
 
                <li>
-                  <a href="#service" class="nav__link">My Services</a>
+                  <a href="#service" class="nav__link">Services</a>
                </li>
 
                <li>
@@ -76,18 +183,18 @@
 
          <div class="home__container container grid">
             <div class="home__data">
-               <h3 class="home__subtitle"> Hi! I'm Manita</h3>
-               <h1 class="home__title"> Creative Designer & <br>
+               <h3 class="home__subtitle">Hi! I'm Manita</h3>
+               <h1 class="home__title">Frontend Developer & <br>
                   <span id="home-typed"></span>
                </h1>
-               <p class="home__description">I build designs and websites that solve problems, inspiring success.</p>
+               <p class="home__description">I create responsive, user-focused digital experiences that are clean, modern, and built to convert ideas into impact.</p>
             </div>
             <div class="home__images">
                <div class="home__box-1"></div>
                <div class="home__box-2"></div>
                <div class="home__box-3"></div>
 
-               <img src="assets/img/home-img.png" alt="Digital professional portaint" class="home__img">
+               <img src="assets/img/home-img.png" alt="Digital professional portrait" class="home__img">
 
                <div class="home__circle">
                   <span class="home__text" id="home-text">EXPLORE - MORE - LET'S -</span>
@@ -103,16 +210,14 @@
       </section>
 
       <!--==================== ABOUT SECTION ====================-->
-      <section class="about section">
+      <section class="about section" id="about">
          <div class="about__container container grid">
-            <h2 class="about__title">About Me: Young Developer who enjoys <span>web design</span>
-               and <span>development</span>, passionate about my work, disciplined,
-               and successful.
+            <h2 class="about__title">About Me: I design thoughtful digital experiences that blend <span>clean aesthetics</span>
+               with <span>strong functionality</span>.
             </h2>
 
             <div class="about__info">
-               <p class="about__description">If you have a project in mind, check out my work and contact me
-                  to work together. Best of luck!</p>
+               <p class="about__description">I enjoy building modern websites and interfaces that feel intuitive, engaging, and easy to use. If you have a vision in mind, let's create something memorable together.</p>
 
                <a title="contact" href="#contact" class="about__button button">
                   <span>Contact Me</span>
@@ -124,7 +229,7 @@
 
       <!--==================== WORK SECTION ====================-->
       <section class="work section" id="work">
-         <h2 class="section__title">View My <span>Work</span></h2>
+         <h2 class="section__title">Selected <span>Projects</span></h2>
 
          <div class="work__container container grid">
             <div class="work__swiper swiper">
@@ -141,10 +246,8 @@
                      <div class="work__data">
                         <span class="work__number">01</span>
                         <h3 class="work__name">E-Commerce Website</h3>
-                        <p><strong>Tech Stack : </strong> HTML5 , CSS3 , JavaScript , jQuery , bxSlider</p>
-                        <p class="work__description">A fully responsive e-commerce website with product showcases,
-                           category sections, image sliders, shopping interface, and smooth user interactions for an
-                           enhanced shopping experience.
+                        <p><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, jQuery, bxSlider</p>
+                        <p class="work__description">A polished online shopping experience with product highlights, category sections, interactive UI patterns, and responsive layouts built for customer engagement.
                         </p>
                      </div>
 
@@ -161,11 +264,10 @@
 
                      <div class="work__data">
                         <span class="work__number">02</span>
-                        <h3 class="work__name">IT Website</h3>
-                        <p><strong>Tech Stack :</strong> HTML5 , CSS3 , JavaScript , Manific Popup , jQuery , BxSlider
+                        <h3 class="work__name">IT Business Website</h3>
+                        <p><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, Magnific Popup, jQuery, BxSlider
                         </p>
-                        <p class="work__description">A high-performance business landing page designed with modern UI
-                           principles, responsive layouts, and optimized user experience.
+                        <p class="work__description">A clean, high-converting business landing page designed to present services clearly while improving user trust and flow.
                         </p>
                      </div>
 
@@ -183,10 +285,8 @@
                      <div class="work__data">
                         <span class="work__number">03</span>
                         <h3 class="work__name">Weather App</h3>
-                        <p><strong>Tech Stack: </strong> HTML5 , CSS3 , JavaScript , Weather API , Memoization</p>
-                        <p class="work__description">Built a responsive weather app using a Weather API to display
-                           real-time weather data, with memoization to optimize performance and reduce redundant API
-                           requests.
+                        <p><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, Weather API, Memoization</p>
+                        <p class="work__description">Built a responsive weather dashboard that fetches live data, shows forecast details clearly, and reduces redundant API calls for smoother performance.
                         </p>
                      </div>
 
@@ -204,9 +304,8 @@
                      <div class="work__data">
                         <span class="work__number">04</span>
                         <h3 class="work__name">Quiz Application</h3>
-                        <p><strong>Tech Stack : </strong> HTML , CSS , JavaScript , Local Storage</p>
-                        <p class="work__description">An interactive quiz platform featuring multiple-choice questions,
-                           real-time score calculation, instant feedback, and a responsive user experience.
+                        <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, Local Storage</p>
+                        <p class="work__description">An interactive quiz experience with instant feedback, score tracking, and a lightweight design focused on accessibility and engagement.
                         </p>
                      </div>
 
@@ -225,9 +324,8 @@
                      <div class="work__data">
                         <span class="work__number">05</span>
                         <h3 class="work__name">Movie Search Application</h3>
-                        <p><strong>Tech Stack:</strong> React.js, CSS , REST API</p>
-                        <p class="work__description">A movie discovery platform that enables users to search movies,
-                           view ratings, and explore detailed information through API-powered data fetching.
+                        <p><strong>Tech Stack:</strong> React.js, CSS, REST API</p>
+                        <p class="work__description">A sleek movie discovery app that helps users explore titles, reviews, and details with clear, easy-to-navigate search interactions.
                         </p>
                      </div>
 
@@ -246,9 +344,8 @@
                      <div class="work__data">
                         <span class="work__number">06</span>
                         <h3 class="work__name">Medilife</h3>
-                        <p><strong>Tech Stack:</strong> HTML5 , CSS3, JavaScript</p>
-                        <p class="work__description"> Developed and deployed a responsive healthcare website with
-                           structured , user-friendly layouts for multiple screen sizes.
+                        <p><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript</p>
+                        <p class="work__description">A responsive healthcare website designed with clear information architecture and a user-first layout for a trustworthy digital experience.
                         </p>
                      </div>
 
@@ -267,11 +364,9 @@
 
                      <div class="work__data">
                         <span class="work__number">07</span>
-                        <h3 class="work__name"> Adilkadri Clone</h3>
-                        <p><strong>Tech Stack:</strong> React.js , Tailwind CSS , Swiper.js</p>
-                        <p class="work__description"> Developed a responsive e-commerce frontend with reusable React
-                           Components and Tailwind CSS. Integrated Swiper.js for responsive product sliders and used
-                           Git/Github for version control.
+                        <h3 class="work__name">Adilkadri Clone</h3>
+                        <p><strong>Tech Stack:</strong> React.js, Tailwind CSS, Swiper.js</p>
+                        <p class="work__description">Developed a modern storefront interface with reusable components, responsive product sliders, and polished front-end interactions.
                         </p>
 
                      </div>
@@ -290,7 +385,7 @@
       <!--==================== SERVICES SECTION ====================-->
       <section class="services section" id="service">
          <h2 class="section__title">
-            <span>Technologies</span>
+            <span>Services</span>
          </h2>
 
          <div class="services__container container grid">
@@ -301,8 +396,7 @@
                <button title="Frontend Development" type="button" class="services__button">
                   <i class="ri-code-box-line services__icon"></i>
 
-                  ```
-                  <h3 class="services__name">Frontend Developer</h3>
+                  <h3 class="services__name">Frontend Development</h3>
 
                   <div class="services__arrow">
                      <i class="ri-arrow-down-s-line"></i>
@@ -311,20 +405,17 @@
 
                <div class="services__data">
                   <p class="services__description">
-                     I build responsive and user-friendly websites using modern
-                     frontend technologies, with a focus on clean code, performance,
-                     and smooth user experiences.
+                     I design and build responsive websites that feel smooth, modern, and easy to use across every screen size.
                   </p>
 
                   <ul class="services__list">
                      <li class="services__item">HTML5 & CSS3</li>
                      <li class="services__item">JavaScript (ES6+)</li>
                      <li class="services__item">React.js</li>
-                     <li class="services__item">Responsive Web Design</li>
-                     <li class="services__item">Reusable UI Components</li>
+                     <li class="services__item">Responsive Design</li>
+                     <li class="services__item">Clean UI Architecture</li>
                   </ul>
                </div>
-               ```
 
             </article>
 
@@ -334,8 +425,7 @@
                <button title="UI Development" type="button" class="services__button">
                   <i class="ri-layout-4-line services__icon"></i>
 
-                  ```
-                  <h3 class="services__name">UI Development</h3>
+                  <h3 class="services__name">UI Design</h3>
 
                   <div class="services__arrow">
                      <i class="ri-arrow-down-s-line"></i>
@@ -344,20 +434,17 @@
 
                <div class="services__data">
                   <p class="services__description">
-                     I convert design ideas and Figma layouts into responsive,
-                     pixel-perfect interfaces that work smoothly across different
-                     screen sizes and browsers.
+                     I turn ideas and layouts into polished interfaces that look refined, feel intuitive, and work beautifully across devices.
                   </p>
 
                   <ul class="services__list">
                      <li class="services__item">Figma to Code</li>
-                     <li class="services__item">Pixel-Perfect UI</li>
+                     <li class="services__item">Modern Interfaces</li>
                      <li class="services__item">Flexbox & CSS Grid</li>
                      <li class="services__item">Bootstrap 5</li>
-                     <li class="services__item">Cross-Browser Compatibility</li>
+                     <li class="services__item">User-Centered Design</li>
                   </ul>
                </div>
-               ```
 
             </article>
 
@@ -367,7 +454,6 @@
                <button title="React Development" type="button" class="services__button">
                   <i class="ri-reactjs-line services__icon"></i>
 
-                  ```
                   <h3 class="services__name">React Development</h3>
 
                   <div class="services__arrow">
@@ -377,20 +463,17 @@
 
                <div class="services__data">
                   <p class="services__description">
-                     I develop interactive frontend applications with React.js using
-                     reusable components, state management, routing, and API
-                     integration.
+                     I develop interactive applications with reusable components, smooth state handling, and clear, scalable front-end experiences.
                   </p>
 
                   <ul class="services__list">
                      <li class="services__item">React.js</li>
-                     <li class="services__item">React Router</li>
+                     <li class="services__item">Component Systems</li>
                      <li class="services__item">State Management</li>
                      <li class="services__item">REST API Integration</li>
-                     <li class="services__item">Reusable Components</li>
+                     <li class="services__item">Scalable Interfaces</li>
                   </ul>
                </div>
-               ```
 
             </article>
 
@@ -400,8 +483,7 @@
                <button title="JavaScript Development" type="button" class="services__button">
                   <i class="ri-javascript-line services__icon"></i>
 
-                  ```
-                  <h3 class="services__name">JavaScript Development</h3>
+                  <h3 class="services__name">Interactive Experience</h3>
 
                   <div class="services__arrow">
                      <i class="ri-arrow-down-s-line"></i>
@@ -410,20 +492,17 @@
 
                <div class="services__data">
                   <p class="services__description">
-                     I create interactive web experiences using modern JavaScript,
-                     DOM manipulation, event handling, browser APIs, and asynchronous
-                     data fetching.
+                     I build engaging experiences using modern JavaScript, performance-aware interactions, and thoughtful UX details that keep users interested.
                   </p>
 
                   <ul class="services__list">
                      <li class="services__item">JavaScript ES6+</li>
-                     <li class="services__item">DOM Manipulation</li>
+                     <li class="services__item">DOM Interactions</li>
                      <li class="services__item">Event Handling</li>
                      <li class="services__item">Fetch API</li>
-                     <li class="services__item">LocalStorage & SessionStorage</li>
+                     <li class="services__item">Smooth UX</li>
                   </ul>
                </div>
-               ```
 
             </article>
 
@@ -434,8 +513,7 @@
       <!--==================== SKILLS SECTION ====================-->
       <section class="skills section" id="skills">
          <h2 class="section__title"> My <span>Skills</span></h2>
-         <p class="skills__description">My skills are those I've learned and developed over the years. By studying,
-            focusing, and being consistent in what I love most.
+         <p class="skills__description">I focus on practical front-end skills that help me design and build interfaces that are not only visually appealing, but also functional, responsive, and user-friendly.
          </p>
 
          <div class="skills__container container grid">
@@ -532,7 +610,7 @@
             </form>
 
             <div class="contact__content grid">
-               <a href="mailto: manita234kumari@gmail.com" target="_blank" class="contact__link">
+               <a href="mailto:manita234kumari@gmail.com" target="_blank" class="contact__link">
                   <div class="contact__info">
                      <i class="ri-mail-line contact__icon"></i>
 
@@ -546,7 +624,7 @@
                      </div>
                   </div>
                </a>
-               <a href="tel: +91 9264109994" target="_blank" class="contact__link">
+               <a href="tel:+919264109994" target="_blank" class="contact__link">
                   <div class="contact__info">
                      <i class="ri-phone-line contact__icon"></i>
 
@@ -566,7 +644,7 @@
 
                      <div class="contact__text">
                         <h3 class="contact__title">Location</h3>
-                        <address class="contact__address">Noida , Uttar Pardesh</address>
+                        <address class="contact__address">Noida, Uttar Pradesh</address>
                      </div>
 
                      <div class="contact__arrow">
@@ -583,8 +661,7 @@
    <!--==================== FOOTER ====================-->
    <footer class="footer">
       <div class="footer__container container grid">
-         <h2 class="footer__title">COLLABORATE WITH ME AND START YOUR
-            JOURNEY IN CREATIVE DESIGN TODAY.</h2>
+         <h2 class="footer__title">Let’s build something thoughtful, useful, and beautifully crafted.</h2>
 
          <div class="footer__content">
             <ul class="footer__links">
@@ -592,7 +669,7 @@
                   <a href="#work" class="footer__link">Work</a>
                </li>
                <li>
-                  <a href="#services" class="footer__link">Services</a>
+                  <a href="#service" class="footer__link">Services</a>
                </li>
                <li>
                   <a href="#skills" class="footer__link">Skills</a>
@@ -601,13 +678,13 @@
 
             <ul class="footer__social">
                <li>
-                  <a title="linkedin" rel="noopener" href="www.linkedin.com/in/manita-kumari-ba4040383" target="_blank"
+                  <a title="linkedin" rel="noopener noreferrer" href="https://www.linkedin.com/in/manita-kumari-ba4040383" target="_blank"
                      class="footer__social-link">
                      <i class="ri-linkedin-box-line"></i>
                   </a>
                </li>
                <li>
-                  <a title="github" rel="noopener" href="https://github.com/Manita-123" target="_blank"
+                  <a title="github" rel="noopener noreferrer" href="https://github.com/Manita-123" target="_blank"
                      class="footer__social-link">
                      <i class="ri-github-line"></i>
                   </a>
@@ -616,14 +693,14 @@
          </div>
       </div>
 
-      <small class="footer__copy">&#169; All Rights Reserved By Manita</small>
+      <small class="footer__copy">© 2025 Manita Kumari. All Rights Reserved.</small>
 
       <div class="blob-big"></div>
    </footer>
 
    <!--========== SCROLL UP ==========-->
 
-   <a title="scrollbar" href="#" class="scrollup" id="scrolll-up">
+   <a title="scrollbar" href="#" class="scrollup" id="scroll-up">
       <i class="ri-arrow-up-line"></i>
    </a>
 
