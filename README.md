@@ -14,12 +14,7 @@ A clean and modern personal portfolio website built with HTML, CSS, and JavaScri
 - HTML5
 - CSS3
 - JavaScript
-- jQuery
-- bxSlider
-- Magnific Popup
 - Swiper.js
-- GSAP ScrollTrigger
-- Next.js
 - Git and GitHub
 
 ## Project Structure
@@ -29,7 +24,7 @@ A clean and modern personal portfolio website built with HTML, CSS, and JavaScri
 - `assets/img/` – project and design assets
 
 ## Live Demo
-https://manita-123.github.io/My-Portfolio/
+https://my-portfolio-u3bq.onrender.com/
 
 ## Author
 Manita Kumari
